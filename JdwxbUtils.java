@@ -16,7 +16,7 @@ import java.util.Date;
 public class JdwxbUtils {
     static String url = "https://gw.smart.jd.com/f/service/";
     static String accessKey = "b8f9c108c190a39760e1b4e373208af5cd75feb4";
-    static String hmacKey = "706390cef611241d57573ca601eb3c061e174948";
+    static String hmacKey = "";
 
     /**
      * 获取登录
@@ -40,7 +40,7 @@ public class JdwxbUtils {
 
     /**
      * 获取设备上次下载速度
-     * @param feedId {'DCD87C48A3CC':{'device_name':'亚瑟','feed_id':265861649341072740},'DCD87C2C9E29':{'device_name':'鲁班','feed_id':401521648985258773}}
+     * @param feedId 
      * @param cmd
      * @return
      *
@@ -59,7 +59,7 @@ public class JdwxbUtils {
         String body = "{\"feed_id\":\""+feedId+"\",\"command\":[{\"current_value\":{\"cmd\":\""+cmd+"\"},\"stream_id\":\"SetParams\"}]}";
         String authorization = getAuthorization(body, accessKey, hmacKey);
         String result = HttpRequest.post(sendUrl)
-                .header("tgt","AAJiT47PAED4wfpCyMYrWY5aHIahE-_rxstA_QPdpvucIPhCLtj0mXXjVZ9P9kUJV8SBxOE0J1qWjqazRpDwZgLAiJEgnx1M")
+                .header("tgt","需要抓包")
                 .header("accessKey",accessKey)
                 .header("pin","JDRouterPush")
                 .header("appkey","996")
@@ -79,7 +79,7 @@ public class JdwxbUtils {
         String result = HttpRequest.get(sendUrl)
                 .header("x-app-id", "996")
                 .header("Content-Type", "application/json")
-                .header("wskey", "AAJiT47PAED4wfpCyMYrWY5aHIahE-_rxstA_QPdpvucIPhCLtj0mXXjVZ9P9kUJV8SBxOE0J1qWjqazRpDwZgLAiJEgnx1M")
+                .header("wskey", "需要抓包")
                 .timeout(4000).execute().body();
         return result;
     }
